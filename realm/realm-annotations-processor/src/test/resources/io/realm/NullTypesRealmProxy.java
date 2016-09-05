@@ -122,6 +122,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
         }
     }
 
+    private boolean acceptDefaultValue;
     private NullTypesColumnInfo columnInfo;
     private ProxyState proxyState;
     private static final List<String> FIELD_NAMES;
@@ -151,7 +152,8 @@ public class NullTypesRealmProxy extends some.test.NullTypes
         FIELD_NAMES = Collections.unmodifiableList(fieldNames);
     }
 
-    NullTypesRealmProxy() {
+    NullTypesRealmProxy(boolean acceptDefaultValue) {
+        this.acceptDefaultValue = acceptDefaultValue;
         if (proxyState == null) {
             injectObjectContext();
         }
@@ -160,11 +162,11 @@ public class NullTypesRealmProxy extends some.test.NullTypes
 
     private void injectObjectContext() {
         final BaseRealm.RealmObjectContext context = BaseRealm.objectContext.get();
-        this.columnInfo = (NullTypesColumnInfo) context.columnInfo;
+        this.columnInfo = (NullTypesColumnInfo) context.getColumnInfo();
         this.proxyState = new ProxyState(some.test.NullTypes.class, this);
 
-        proxyState.setRealm$realm(context.realm);
-        proxyState.setRow$realm(context.row);
+        proxyState.setRealm$realm(context.getRealm());
+        proxyState.setRow$realm(context.getRow());
     }
 
     @SuppressWarnings("cast")
@@ -184,7 +186,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -212,7 +214,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -241,7 +243,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -272,7 +274,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -301,7 +303,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -329,7 +331,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -358,7 +360,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -389,7 +391,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -418,7 +420,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -449,7 +451,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -478,7 +480,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -509,7 +511,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -538,7 +540,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -569,7 +571,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -598,7 +600,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -629,7 +631,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -658,7 +660,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -689,7 +691,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -718,7 +720,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -749,7 +751,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
@@ -780,7 +782,7 @@ public class NullTypesRealmProxy extends some.test.NullTypes
             injectObjectContext();
         }
 
-        if (proxyState.isUnderConstruction() && !proxyState.getRealm$realm().isInTransaction()) {
+        if (proxyState.isUnderConstruction() && !this.acceptDefaultValue) {
             return;
         }
 
